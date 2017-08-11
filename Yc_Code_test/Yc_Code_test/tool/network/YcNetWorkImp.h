@@ -8,18 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- *  request type
- */
-typedef NS_ENUM(NSUInteger,HttpRequestType){
-    
-    //get
-    HttpRequestTypeGet = 0,
-    
-    //post
-    HttpRequestTypePost,
-};
-
 
 @interface YcNetWorkImp : NSObject
 

@@ -56,6 +56,9 @@ static YcNetWorkImp *sharedInstance;
 {
     NSString *param = [YcNetWorkImp stringWithParam:parameters];
     
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstring]];
+    
+    request.HTTPMethod = @"POST";
     
     
 }
