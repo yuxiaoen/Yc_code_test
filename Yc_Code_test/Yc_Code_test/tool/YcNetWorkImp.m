@@ -26,6 +26,11 @@ static YcNetWorkImp *sharedInstance;
                 success:(void (^)(id))success
                 failure:(void (^)(NSError *))failure
 {
+    NSString *param = [YcNetWorkImp stringWithParam:parameters];
+    
+    
+    
+    
     
     
 }
@@ -35,10 +40,34 @@ static YcNetWorkImp *sharedInstance;
                  success:(void (^)(id))success
                  failure:(void (^)(NSError *))failure
 {
-    
+    NSString *param = [YcNetWorkImp stringWithParam:parameters];
     
     
 }
+
+
++(NSString *)stringWithParam:(NSDictionary *)params{
+    NSString *paramString;
+    NSMutableString *result = [NSMutableString new];
+    NSMutableArray *array = [NSMutableArray new];
+    
+    NSEnumerator *keyEnum = [params keyEnumerator];
+    id key;
+    
+    while (key = [keyEnum nextObject]) {
+        paramString = [NSString stringWithFormat:@"%@=%@&",key,[params valueForKey:key]];
+        [result appendString:paramString];
+        [array addObject:paramString];
+    }
+    
+    if (array > 0) {
+        [result deleteCharactersInRange:NSMakeRange(result.length - 1, 1)];
+    }
+    
+    return result;
+}
+
+
 
 
 

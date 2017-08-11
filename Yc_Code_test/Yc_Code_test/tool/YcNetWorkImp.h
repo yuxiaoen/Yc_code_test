@@ -55,5 +55,13 @@ typedef NS_ENUM(NSUInteger,HttpRequestType){
                  failure:(void(^)(NSError *error))failure;
 
 
+/**
+ 字典转成string
+
+ @param params 请求参数
+ @return 请求参数
+ */
++(NSString *)stringWithParam:(NSDictionary *)params;
+
 
 @end
