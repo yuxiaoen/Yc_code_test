@@ -7,6 +7,7 @@
 //
 
 #import "YcNetWork.h"
+#import "YcNetWorkImp.h"
 
 @implementation YcNetWork
 
@@ -21,7 +22,28 @@ static YcNetWork *sharedInstance;
 }
 
 
--(void)requestWithGet:(NSString *)url Parameter:(id)Parameter Response:(HttpResponseBlock)block Failed:(HttpFailedBlock)failedblock{
+-(void)requestWithGet:(NSString *)url
+            Parameter:(id)Parameter
+             Response:(HttpResponseBlock)block
+               Failed:(HttpFailedBlock)failedblock
+{
+    [YcNetWorkImp getWithUrlString:url Parameters:Parameter success:^(id responseObject){
+        block(responseObject);
+    } failure:^(NSError *error) {
+        failedblock(error);
+    }];
+}
+
+-(void)requestWithPost:(NSString *)url
+             Parameter:(id)Parameter
+              Response:(HttpResponseBlock)block
+                Failed:(HttpFailedBlock)failedblock
+{
+    [YcNetWorkImp postWithUrlString:url Parameters:Parameter success:^(id responseObject) {
+        block(responseObject);
+    } failure:^(NSError *error) {
+        failedblock(error);
+    }];
     
 }
 

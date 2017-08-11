@@ -21,6 +21,26 @@ static YcNetWorkImp *sharedInstance;
 }
 
 
++(void)getWithUrlString:(NSString *)urlstring
+             Parameters:(id)parameters
+                success:(void (^)(id))success
+                failure:(void (^)(NSError *))failure
+{
+    
+    
+}
+
++(void)postWithUrlString:(NSString *)urlstring
+              Parameters:(id)parameters
+                 success:(void (^)(id))success
+                 failure:(void (^)(NSError *))failure
+{
+    
+    
+    
+}
+
+
 
 
 

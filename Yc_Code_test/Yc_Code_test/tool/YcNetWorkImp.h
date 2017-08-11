@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger,HttpRequestType){
  @param success 成功回调
  @param failure 失败回调
  */
--(void)getWithUrlString:(NSString *)urlstring
++(void)getWithUrlString:(NSString *)urlstring
              Parameters:(id)parameters
                 success:(void(^)(id responseObject))success
                 failure:(void (^)(NSError *error))failure;
@@ -49,7 +49,7 @@ typedef NS_ENUM(NSUInteger,HttpRequestType){
  @param success 成功回调
  @param failure 失败回调
  */
--(void)postWithUrlString:(NSString *)urlstring
++(void)postWithUrlString:(NSString *)urlstring
               Parameters:(id)parameters
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure;
