@@ -28,10 +28,24 @@ static YcNetWorkImp *sharedInstance;
 {
     NSString *param = [YcNetWorkImp stringWithParam:parameters];
     
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",urlstring,param]];
     
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    NSURLSession *session = [NSURLSession sharedSession];
     
+    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                failure(error);
+            }else{
+                id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                success(dict);
+            }
+        });
+    }];
     
+    [sessionDataTask resume];
     
 }
 
@@ -41,6 +55,7 @@ static YcNetWorkImp *sharedInstance;
                  failure:(void (^)(NSError *))failure
 {
     NSString *param = [YcNetWorkImp stringWithParam:parameters];
+    
     
     
 }
