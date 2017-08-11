@@ -21,12 +21,7 @@ static YcNetWork *sharedInstance;
 }
 
 
--(void)requestWithGet:(NSString *)url Param:(NSDictionary *)dict Response:(HttpResponseBlock)block{
-    
-}
-
--(void)requestWithPost:(NSString *)url Param:(NSDictionary *)dict Response:(HttpResponseBlock)block Failed:(HttpFailedBlock)failedblock{
-    
+-(void)requestWithGet:(NSString *)url Parameter:(id)Parameter Response:(HttpResponseBlock)block Failed:(HttpFailedBlock)failedblock{
     
 }
 
