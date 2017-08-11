@@ -60,7 +60,22 @@ static YcNetWorkImp *sharedInstance;
     
     request.HTTPMethod = @"POST";
     
+    request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
     
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *sessionDataTasdk = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                failure(error);
+            }else{
+                id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                success(dict);
+            }
+        });
+    }];
+    
+    [sessionDataTasdk resume];
 }
 
 
