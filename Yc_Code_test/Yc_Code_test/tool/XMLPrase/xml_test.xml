@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugins>
+    <module name="test">
+        <events>
+            <type1>test1</type1>
+            <type2>test2</type2>
+            <type4>test3</type4>
+        </events>
+        
+        <arguments>
+            <id>id</id>
+            <appkey>appkey</appkey>
+            <url>www.baidu.com</url>
+        </arguments>
+    </module>
+</plugins>
