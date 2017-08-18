@@ -12,4 +12,6 @@
 
 +(id)sharedInstance;
 
+-(void)startParserXML;
+
 @end

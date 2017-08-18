@@ -10,6 +10,14 @@
 
 @interface XMLParse()
 
+@property (nonatomic, strong) NSString *moduleName;
+
+@property (nonatomic, strong) NSMutableDictionary *eventDict;
+
+@property (nonatomic, strong) NSMutableDictionary *argDic;
+
+@property (nonatomic, strong) NSMutableDictionary *tempDic;
+
 @end
 
 @implementation XMLParse
@@ -26,9 +34,24 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        
+        self.eventDict = [[NSMutableDictionary alloc] init];
+        self.argDic = [[NSMutableDictionary alloc] init];
+        self.tempDic = [[NSMutableDictionary alloc] init];
     }
     return self;
+}
+
+
+-(void)startParserXML{
+    NSString *xmlPath = [[NSBundle mainBundle] pathForResource:@"xml_test" ofType:@"xml"];
+    
+    NSData *data = [[NSData alloc] initWithContentsOfFile:xmlPath];
+    
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+    
+    xmlParser.delegate = self;
+    
+    [xmlParser parse];
 }
 
 

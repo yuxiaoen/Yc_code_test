@@ -5,7 +5,7 @@
         <events>
             <type1>test1</type1>
             <type2>test2</type2>
-            <type4>test3</type4>
+            <type3>test3</type3>
         </events>
         
         <arguments>
