@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) NSString *tempName;
 
+@property (nonatomic, strong) NSString *arg_value;
+
 @end
 
 @implementation XMLParse
