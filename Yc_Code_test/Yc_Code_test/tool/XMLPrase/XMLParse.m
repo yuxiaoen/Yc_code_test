@@ -7,6 +7,7 @@
 //
 
 #import "XMLParse.h"
+#import "ModuleDefine.h"
 
 @interface XMLParse()
 
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSMutableDictionary *argDic;
 
 @property (nonatomic, strong) NSMutableDictionary *tempDic;
+
+@property (nonatomic, strong) NSString *tempName;
 
 @end
 
@@ -62,6 +65,11 @@
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
     //解析节点，解析参数
+    _tempName = elementName;
+    if ([elementName isEqualToString:ELEMENT_NAME_MODULE]) {
+        _moduleName = [attributeDict valueForKey:@"name"];
+    }
+    
     
     
 }
