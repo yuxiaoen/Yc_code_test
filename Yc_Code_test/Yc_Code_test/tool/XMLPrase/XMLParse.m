@@ -78,19 +78,22 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     //节点值
-    
+    _arg_value = string;
 }
 
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     //节点分析完毕
-    
+    if ([elementName isEqualToString:_tempName]) {
+        if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_TYPE1]) {
+            [_eventDict setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_TYPE1];
+        }
+    }
 }
 
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     //解析完毕
-    
 }
 
 
