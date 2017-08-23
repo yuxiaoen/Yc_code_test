@@ -100,14 +100,20 @@
             [_argDic setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_APPKEY];
         }
     }
+    
+    if ([elementName isEqualToString:ELEMENT_NAME_MODULE]) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:[_argDic copy] forKey:ELEMENT_NAME_ARGUMENTS];
+        [dict setValue:[_eventDict copy] forKey:ELEMENT_NAME_EVENTS];
+        
+        NSLog(@"%@",dict);
+    }
 }
 
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     //解析完毕
-    [_tempDic setValue:_argDic forKey:ELEMENT_NAME_ARGUMENTS];
-    [_tempDic setValue:_eventDict forKey:ELEMENT_NAME_EVENTS];
-    NSLog(@"%@",_tempDic);
+
 }
 
 
