@@ -70,6 +70,7 @@
     _tempName = elementName;
     if ([elementName isEqualToString:ELEMENT_NAME_MODULE]) {
         _moduleName = [attributeDict valueForKey:@"name"];
+        
     }
     
     
@@ -87,6 +88,16 @@
     if ([elementName isEqualToString:_tempName]) {
         if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_TYPE1]) {
             [_eventDict setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_TYPE1];
+        }else if([elementName isEqualToString:ELEMENT_ATTRIBUTE_TYPE2]){
+            [_eventDict setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_TYPE2];
+        }else if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_TYPE3]){
+            [_eventDict setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_TYPE3];
+        }else if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_ARG_ID]){
+            [_argDic setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_ARG_ID];
+        }else if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_ARG_URL]){
+            [_argDic setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_ARG_URL];
+        }else if ([elementName isEqualToString:ELEMENT_ATTRIBUTE_APPKEY]){
+            [_argDic setValue:_arg_value forKey:ELEMENT_ATTRIBUTE_APPKEY];
         }
     }
 }
@@ -94,6 +105,9 @@
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     //解析完毕
+    [_tempDic setValue:_argDic forKey:ELEMENT_NAME_ARGUMENTS];
+    [_tempDic setValue:_eventDict forKey:ELEMENT_NAME_EVENTS];
+    NSLog(@"%@",_tempDic);
 }
 
 

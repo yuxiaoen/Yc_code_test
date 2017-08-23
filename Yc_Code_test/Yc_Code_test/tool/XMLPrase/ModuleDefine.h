@@ -19,8 +19,8 @@
 
 #define ELEMENT_ATTRIBUTE_TYPE3             @"type3"
 
-#define ELEMENT_ATTRIBUTE_ARG_ID            @"type1"
+#define ELEMENT_ATTRIBUTE_ARG_ID            @"id"
 
-#define ELEMENT_ATTRIBUTE_APPKEY            @"type1"
+#define ELEMENT_ATTRIBUTE_APPKEY            @"appkey"
 
-#define ELEMENT_ATTRIBUTE_ARG_URL           @"type1"
+#define ELEMENT_ATTRIBUTE_ARG_URL           @"url"
