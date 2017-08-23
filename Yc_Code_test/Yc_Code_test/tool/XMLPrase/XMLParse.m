@@ -105,8 +105,10 @@
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:[_argDic copy] forKey:ELEMENT_NAME_ARGUMENTS];
         [dict setValue:[_eventDict copy] forKey:ELEMENT_NAME_EVENTS];
+        [dict setValue:_moduleName forKey:ELEMENT_NAME_MODULE];
         
-        NSLog(@"%@",dict);
+        
+
     }
 }
 
