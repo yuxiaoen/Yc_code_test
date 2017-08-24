@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *argDic;
 
-@property (nonatomic, strong) NSMutableDictionary *tempDic;
+@property (nonatomic, strong) NSMutableArray *dataAarray;
 
 @property (nonatomic, strong) NSString *tempName;
 
@@ -41,7 +41,7 @@
     if (self) {
         self.eventDict = [[NSMutableDictionary alloc] init];
         self.argDic = [[NSMutableDictionary alloc] init];
-        self.tempDic = [[NSMutableDictionary alloc] init];
+        self.dataAarray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -106,16 +106,17 @@
         [dict setValue:[_argDic copy] forKey:ELEMENT_NAME_ARGUMENTS];
         [dict setValue:[_eventDict copy] forKey:ELEMENT_NAME_EVENTS];
         [dict setValue:_moduleName forKey:ELEMENT_NAME_MODULE];
+        [self.dataAarray addObject:dict];
         
-        
-
+        [_argDic removeAllObjects];
+        [_eventDict removeAllObjects];
     }
 }
 
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
     //解析完毕
-
+    NSLog(@"%@",self.dataAarray);
 }
 
 
